@@ -5,7 +5,7 @@ function UserAuth( {token, setToken} ) {
     function Authenticate() {
         const client_id = 'f73758cc3181424b815e5ca7d9b7098c';
         const redirect_uri = 'http://localhost:3000';
-        const scopes = 'user-read-private user-read-email playlist-modify-private';
+        const scopes = 'user-read-private user-read-email playlist-modify-private playlist-modify-public';
 
         let url = `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(client_id)}&redirect_uri=${encodeURIComponent(redirect_uri)}&scope=${encodeURIComponent(scopes)}`;
        

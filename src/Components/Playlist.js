@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function Playlist() {
+function Playlist({playlist}) {
 
 return (
 <div>
     <input></input>
-    <div className="tracks"></div>
+    <div className="tracks">{playlist}</div>
     <button>Save to Spotify</button>
 </div>
 )

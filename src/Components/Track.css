@@ -1,0 +1,32 @@
+
+.Track {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    width: 90%;
+}
+
+
+.Track-content {
+    flex: 90%;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.button {
+    flex: 10%;
+    align-self: center;
+}
+
+.Track-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #800080;
+}
+
+.track-id {
+    display: none;
+}
+
+.track-uri {
+    display: none;
+}

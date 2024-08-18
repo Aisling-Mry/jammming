@@ -1,0 +1,25 @@
+
+
+.Playlist-track {
+    border-bottom: 1px solid #ccc;
+}
+
+.Playlist-track-contents {
+    display: inline-block;
+    width: 90%;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.Track-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.track-id {
+    display: none;
+}
+
+.track-uri {
+    display: none;
+}

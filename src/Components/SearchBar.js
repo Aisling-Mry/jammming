@@ -34,8 +34,8 @@ const handleSubmit = async (e) => {
 }
 
     return (
-        <form className="search">
-           <input type='text' onChange={handleChange}/>
+        <form className="search" >
+           <input type='text' onChange={handleChange} className="search-input"/>
            <button type="submit" onClick={handleSubmit} className="searchButton">Search</button>
           </form>
     )

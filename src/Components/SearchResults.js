@@ -2,7 +2,7 @@ import React from 'react';
 import Track from './Track'; 
 
 
-function SearchResults( { queryResults } ) {
+function SearchResults( { queryResults, addTrack } ) {
 
     if (!queryResults || !queryResults.tracks || !Array.isArray(queryResults.tracks.items)) {
         return <div>Loading...</div>;
@@ -14,9 +14,8 @@ function SearchResults( { queryResults } ) {
             {
 
             songs.map(item => (
-            <Track key={item.id} trackObject={item}/>)
-            
-                )
+            <Track key={item.id} trackObject={item} addTrack={addTrack}/>
+        ) )
             }
         </div>
         );

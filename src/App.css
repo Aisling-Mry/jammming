@@ -2,26 +2,65 @@
   text-align: center;
 }
 
+.heading-container {
+  background-image: url(./Images/Background-right.png);
+
+}
 
 .App-header {
-  background-color: #282c34;
+  background-image: url(./Images/music-waves.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 250px;
 }
 
 .contents {
   display: flex;
-  justify-content: center;
+  width: 90%;
+  margin: auto;
 }
 
 .Search-section {
   display: inline-block;
+  flex: 50%;
 }
 
 .Playlist-section {
   display: inline-block;
+  flex: 50%;
+}
+
+.playlist-name {
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+
+.playlist-name-input {
+  align-self: center;
+  height: 30px;
+  width: 200px;
+  border: none;
+  border-bottom: 0.5px solid #ccc;
+  padding: 5px;
+  font-size: 1.6em;
+}
+
+.save-button {
+  border-radius: 10px;
+  height: 45px;
+  width: 90px;
+  margin-top: 20px;
+  background-color: #DDA0DD;
+  padding: 5px;
+}
+
+.getID {
+  margin-top: 500px;
 }

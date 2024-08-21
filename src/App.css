@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
 }
 
@@ -7,7 +7,7 @@
 
 }
 
-.App-header {
+.app-header {
   background-image: url(./Images/music-waves.jpeg);
   background-repeat: no-repeat;
   background-position: center;
@@ -21,16 +21,25 @@
   height: 250px;
 }
 
+.heading {
+  margin-bottom: 65px;
+}
+
 .contents {
   display: flex;
   width: 90%;
   margin: auto;
 }
 
-.Search-section {
+.search-section {
   display: inline-block;
   flex: 50%;
 }
+
+.search-results-heading {
+  margin-right: 10%;
+}
+
 
 .Playlist-section {
   display: inline-block;
@@ -61,6 +70,10 @@
   padding: 5px;
 }
 
-.getID {
-  margin-top: 500px;
+
+.refresh_login {
+  border-radius: 10px;
+  height: 45px;
+  width: 90px;
+  margin-top: 600px;
 }

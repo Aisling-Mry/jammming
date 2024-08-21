@@ -1,13 +1,10 @@
 import SearchBar from './Components/SearchBar';
-import './App.css';
-import Playlist from './Components/Playlist';
 import SearchResults from './Components/SearchResults';
 import UserAuth from './Components/UserAuth';
 import React, {useState} from 'react';
-import './Components/Playlist.css';
-import GetProfile from './Components/GetProfile';
+import './App.css';
 
-console.log('UserAuth component:', UserAuth);
+
 
 function App() {
 
@@ -17,23 +14,42 @@ function App() {
   const [playlistName, setPlaylistName] = useState("");
   const [userID, setUserID] = useState("test");
 
-  function handleClick(e) {
-    e.preventDefault();
-    console.log(queryResults, queryResults.tracks.items)
-  } //running a test to check if API call working.
-
+  
   function addTrack(track) {
     setPlaylist((prev) => [...prev, track]);
-    //could add checking if track is already in playlist
     console.log(playlist)
   }
   
   const handleNameChange = (e) => {
     setPlaylistName(e.target.value)
     console.log(playlistName)
-}
+  }
 
-const handleSaveToSpotify = async () => { 
+  function removeTrack(track) {
+    setPlaylist(playlist.filter((item) => item.id !== track.id));
+  }
+
+  const handleSaveToSpotify = async () => { 
+  console.log(userID)
+
+  try {
+    const response = await fetch("https://api.spotify.com/v1/me", {
+      headers: {
+          Authorization: `Bearer ${token}`
+              }
+      });
+
+  if (response.ok) {
+  const data = await response.json()
+  setUserID(data.id)
+  console.log(userID)
+  }
+  }
+
+  catch(error) {
+      console.log(error);
+  }
+
   //first get / set profile ID
   const user_id = userID;
   const trackURIs = playlist.map(track => track.uri);
@@ -82,16 +98,16 @@ const handleSaveToSpotify = async () => {
     }
   }
   catch(error) {console.log(error)}
-};
+  };
 
 
 
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="heading-container">
-        <header className="App-header">
-          <h1>Jamming</h1>
+        <header className="app-header">
+          <h1 className="heading">Jamming</h1>
         </header>
       </div>
       
@@ -99,8 +115,8 @@ const handleSaveToSpotify = async () => {
 
       <div className="contents">
       
-      <div className="Search-section">
-        <h1>Search Results</h1>
+      <div className="search-section">
+        <h1 className="search-results-heading">Search Results</h1>
         <SearchResults  queryResults={queryResults} addTrack={addTrack}/> 
       </div>
       
@@ -110,13 +126,16 @@ const handleSaveToSpotify = async () => {
                     <input className="playlist-name-input" type="text" placeholder="Playlist Name..." onChange={handleNameChange}/>
                   </div>
                 {playlist.map((track, index) => (
-                    <div key={index} className="Playlist-track">
-                        <div className="Playlist-track-contents">
-                          <div className="Track-heading">{track.name}</div>
+                    <div key={index} className="track">
+                        <div className="track_content">
+                          <div className="track_heading">{track.name}</div>
                           <div>{track.artists.map(artist => artist.name).join(', ')}</div>
                           <div>{track.album.name}</div>
                          <div className="track-id">{track.id}</div>
                          <div className="track-uri">{track.uri}</div>
+                        </div>
+                        <div className="button">
+                          <button onClick={() => removeTrack(track)}>-</button>
                         </div>
                     </div>
                     ))}
@@ -125,11 +144,10 @@ const handleSaveToSpotify = async () => {
 
       </div>
       
-      <GetProfile token={token} setUserID={setUserID} userID={userID}/>  
-
+      
       <UserAuth token={token} setToken={setToken}/>
     
-      <button onClick={handleClick}>Test</button>
+
 
                       
 

@@ -1,19 +1,27 @@
 
-
-.Playlist-track {
+.track {
     border-bottom: 1px solid #ccc;
+    display: flex;
+    width: 90%;
 }
 
-.Playlist-track-contents {
-    display: inline-block;
-    width: 90%;
+
+.track_content {
+    flex: 90%;
     margin-bottom: 8px;
     margin-top: 8px;
+
 }
 
-.Track-heading {
+.button {
+    flex: 10%;
+    align-self: center;
+}
+
+.track_heading {
     font-size: 1.5em;
     font-weight: bold;
+    color: #800080;
 }
 
 .track-id {

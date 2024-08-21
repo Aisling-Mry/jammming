@@ -5,12 +5,12 @@ import Track from './Track';
 function SearchResults( { queryResults, addTrack } ) {
 
     if (!queryResults || !queryResults.tracks || !Array.isArray(queryResults.tracks.items)) {
-        return <div>Loading...</div>;
+        return <div>Search for your favorite music!</div>;
     }
     const songs = queryResults.tracks.items;
 
     return (
-        <div className="results">
+        <div >
             {
 
             songs.map(item => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Track.css';
+import '../Styles/Track.css';
 
 function Track(props) {
     const { name, artists, album, id, uri } = props.trackObject;
@@ -9,9 +9,9 @@ function Track(props) {
     }
 
 return (
-    <div className="Track">
-        <div className="Track-content">
-            <div className="Track-heading">{name}</div>
+    <div className="track">
+        <div className="track_content">
+            <div className="track_heading">{name}</div>
             <div>{artists.map(artist => artist.name).join(', ')}</div>
             <div>{album.name}</div>
             <div className="track-id">{id}</div>

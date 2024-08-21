@@ -29,7 +29,7 @@ function UserAuth( {token, setToken} ) {
 
 return (
     <div>
-        <button onClick={Authenticate}>Click</button>
+        <button onClick={Authenticate} className="refresh_login">Refresh login</button>
     </div>
 );
 
